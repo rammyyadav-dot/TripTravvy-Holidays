@@ -26,6 +26,16 @@
   details > summary{ list-style:none; cursor:pointer; }
   details > summary::-webkit-details-marker{ display:none; }
   details[open] .faq-icon{ transform:rotate(45deg); }
+
+  /* Hero carousel */
+  .hero-slide{ transition:opacity 1.1s ease-in-out; }
+  .hero-media{ transition:transform 8s ease-out; transform:scale(1.06); }
+  .hero-slide.opacity-100 .hero-media{ transform:scale(1); }
+  .hero-dot{ width:34px; height:3px; border-radius:2px; background:rgba(255,255,255,.3); position:relative; overflow:hidden; padding:0; border:none; cursor:pointer; }
+  .hero-dot .bar{ position:absolute; inset:0; background:#f59e0b; transform:scaleX(0); transform-origin:left; }
+  .hero-dot .bar.running{ animation-name:heroFill; animation-timing-function:linear; animation-fill-mode:forwards; }
+  @keyframes heroFill{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+  @media (prefers-reduced-motion: reduce){ .hero-slide, .hero-media{ transition:none !important; } .hero-dot .bar.running{ animation:none !important; transform:scaleX(1); } }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
@@ -83,16 +93,47 @@
   </nav>
 </header>
 
-<!-- Hero -->
-<section class="relative min-h-[85vh] flex items-center justify-center text-white overflow-hidden"
-  style="background:linear-gradient(rgba(2,6,23,.55),rgba(2,6,23,.88)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1800&auto=format&fit=crop') center/cover;">
-  <div class="relative max-w-5xl mx-auto px-6 text-center z-10 py-24">
-    <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-amber-300">
-      Tailor-Made Boutique Journeys · Vasai-Virar, Maharashtra
+<!-- Hero Carousel -->
+<section id="hero" class="relative min-h-[85vh] flex items-center justify-center text-white overflow-hidden" aria-roledescription="carousel" aria-label="Featured destinations">
+
+  <!-- Slides -->
+  <div id="heroSlides" class="absolute inset-0">
+    <!-- Slide 1 — video-capable flagship slot -->
+    <div class="hero-slide absolute inset-0 opacity-100" data-index="0" data-name="Santorini, Greece" data-tag="Santorini sunsets, without the tour groups.">
+      <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1800&auto=format&fit=crop" alt="Santorini, Greece" class="hero-media absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0" style="background:linear-gradient(rgba(2,6,23,.55),rgba(2,6,23,.88))"></div>
     </div>
-    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight mb-6 max-w-4xl mx-auto leading-tight">
+    <!-- Slide 2 -->
+    <div class="hero-slide absolute inset-0 opacity-0" data-index="1" data-name="Bali, Indonesia" data-tag="Rice terraces and quiet Ubud mornings.">
+      <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1800&auto=format&fit=crop" alt="Bali, Indonesia" class="hero-media absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0" style="background:linear-gradient(rgba(2,6,23,.55),rgba(2,6,23,.88))"></div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="hero-slide absolute inset-0 opacity-0" data-index="2" data-name="Maldives" data-tag="Overwater villas, at your own pace.">
+      <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=1800&auto=format&fit=crop" alt="Maldives" class="hero-media absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0" style="background:linear-gradient(rgba(2,6,23,.55),rgba(2,6,23,.88))"></div>
+    </div>
+    <!-- Slide 4 -->
+    <div class="hero-slide absolute inset-0 opacity-0" data-index="3" data-name="Swiss Alps, Switzerland" data-tag="Glacier trains through the high Alps.">
+      <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=1800&auto=format&fit=crop" alt="Swiss Alps, Switzerland" class="hero-media absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0" style="background:linear-gradient(rgba(2,6,23,.55),rgba(2,6,23,.88))"></div>
+    </div>
+    <!-- Slide 5 -->
+    <div class="hero-slide absolute inset-0 opacity-0" data-index="4" data-name="Dubai & Abu Dhabi, UAE" data-tag="Desert dusk, then skyline dinners.">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1800&auto=format&fit=crop" alt="Dubai and Abu Dhabi, UAE" class="hero-media absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0" style="background:linear-gradient(rgba(2,6,23,.55),rgba(2,6,23,.88))"></div>
+    </div>
+  </div>
+
+  <!-- Content overlay (constant brand message + dynamic destination tag) -->
+  <div class="relative max-w-5xl mx-auto px-6 text-center z-10 py-24">
+    <div id="heroPill" class="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-amber-300 transition-opacity duration-500">
+      Featured Now · Santorini, Greece
+    </div>
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight mb-4 max-w-4xl mx-auto leading-tight">
       Holidays shaped around <span class="italic text-amber-300">your rhythm.</span>
     </h1>
+    <p id="heroTag" class="serif-font italic text-amber-200/90 text-lg sm:text-xl mb-6 transition-opacity duration-500">Santorini sunsets, without the tour groups.</p>
     <p class="max-w-2xl mx-auto text-slate-200 text-base sm:text-lg font-light leading-relaxed mb-10">
       No fixed departures, no batch itineraries. Every Trip Travvy Holidays trip is designed from scratch by a dedicated trip designer — around your budget, your pace, and the people you're travelling with.
     </p>
@@ -100,6 +141,32 @@
       <a href="#collections" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-8 py-4 rounded-lg text-xs font-extrabold uppercase tracking-widest shadow-xl transition duration-200">Explore Collections</a>
       <a href="#consultation" class="border border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-md px-8 py-4 rounded-lg text-xs font-bold uppercase tracking-widest transition duration-200">Talk to a Trip Designer</a>
     </div>
+  </div>
+
+  <!-- Prev / Next arrows -->
+  <button id="heroPrev" aria-label="Previous destination" class="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 items-center justify-center rounded-full border border-white/25 bg-white/5 hover:bg-white/15 backdrop-blur-md transition">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button id="heroNext" aria-label="Next destination" class="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 items-center justify-center rounded-full border border-white/25 bg-white/5 hover:bg-white/15 backdrop-blur-md transition">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+
+  <!-- Dots with progress fill -->
+  <div id="heroDots" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2.5">
+    <button class="hero-dot active" data-goto="0" aria-label="Slide 1, Santorini"><span class="bar"></span></button>
+    <button class="hero-dot" data-goto="1" aria-label="Slide 2, Bali"><span class="bar"></span></button>
+    <button class="hero-dot" data-goto="2" aria-label="Slide 3, Maldives"><span class="bar"></span></button>
+    <button class="hero-dot" data-goto="3" aria-label="Slide 4, Swiss Alps"><span class="bar"></span></button>
+    <button class="hero-dot" data-goto="4" aria-label="Slide 5, Dubai"><span class="bar"></span></button>
+  </div>
+
+  <!-- Hero video preview tool (client-side only — for the team to trial their own footage before hosting it) -->
+  <div class="absolute bottom-5 right-5 z-20 text-right">
+    <button id="videoPreviewBtn" class="text-[10px] font-bold uppercase tracking-widest text-white/70 hover:text-amber-300 bg-black/30 hover:bg-black/45 backdrop-blur-md px-3 py-2 rounded-full border border-white/15 transition">
+      Preview Your Video in Slide 1
+    </button>
+    <input type="file" id="heroVideoInput" accept="video/*" class="hidden">
+    <div id="videoPreviewNote" class="hidden mt-2 text-[10px] text-amber-200/90 bg-black/40 px-3 py-1.5 rounded-full inline-block">Preview only — not saved. Host the file and set its URL in the code to make it permanent.</div>
   </div>
 </section>
 
@@ -541,6 +608,132 @@
 </footer>
 
 <script>
+  // ---------------------------------------------------------------
+  // HERO CAROUSEL
+  // Max 5 slides by design (keeps the bundle light and holds attention).
+  // To make Slide 1 a permanent video hero: host your .mp4 file, then
+  // replace the <img class="hero-media" ...> inside the first .hero-slide
+  // with: <video class="hero-media absolute inset-0 w-full h-full object-cover"
+  // src="YOUR_VIDEO_URL.mp4" poster="FALLBACK_IMAGE.jpg" autoplay muted loop playsinline></video>
+  // ---------------------------------------------------------------
+  (function(){
+    const AUTOPLAY_MS = 6000;
+    const slides = Array.from(document.querySelectorAll('.hero-slide'));
+    const dots = Array.from(document.querySelectorAll('.hero-dot'));
+    const pill = document.getElementById('heroPill');
+    const tag = document.getElementById('heroTag');
+    let current = 0, timer = null, heroInView = true;
+
+    function renderText(i){
+      const s = slides[i];
+      pill.style.opacity = 0; tag.style.opacity = 0;
+      setTimeout(() => {
+        pill.textContent = 'Featured Now · ' + s.dataset.name;
+        tag.textContent = s.dataset.tag;
+        pill.style.opacity = 1; tag.style.opacity = 1;
+      }, 250);
+    }
+
+    function goTo(i){
+      slides[current].classList.remove('opacity-100'); slides[current].classList.add('opacity-0');
+      dots[current].classList.remove('active');
+      const bar = dots[current].querySelector('.bar');
+      bar.classList.remove('running'); bar.style.animationDuration = '';
+
+      current = (i + slides.length) % slides.length;
+
+      slides[current].classList.remove('opacity-0'); slides[current].classList.add('opacity-100');
+      dots[current].classList.add('active');
+      renderText(current);
+      startBar(current);
+    }
+
+    function startBar(i){
+      const bar = dots[i].querySelector('.bar');
+      bar.classList.remove('running');
+      void bar.offsetWidth; // restart animation
+      bar.style.animationDuration = AUTOPLAY_MS + 'ms';
+      bar.classList.add('running');
+    }
+
+    function next(){ goTo(current + 1); }
+    function prev(){ goTo(current - 1); }
+
+    function play(){
+      stop();
+      startBar(current);
+      timer = setInterval(next, AUTOPLAY_MS);
+    }
+    function stop(){ if(timer) clearInterval(timer); timer = null; }
+
+    document.getElementById('heroNext').addEventListener('click', () => { next(); play(); });
+    document.getElementById('heroPrev').addEventListener('click', () => { prev(); play(); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); play(); }));
+
+    const hero = document.getElementById('hero');
+    hero.addEventListener('mouseenter', stop);
+    hero.addEventListener('mouseleave', play);
+    document.addEventListener('visibilitychange', () => { if(document.hidden) stop(); else if(heroInView) play(); });
+
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(entries => {
+        heroInView = entries[0].isIntersecting;
+        if(heroInView) play(); else stop();
+      }, {threshold:0.2}).observe(hero);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if(!heroInView) return;
+      if(e.key === 'ArrowRight'){ next(); play(); }
+      if(e.key === 'ArrowLeft'){ prev(); play(); }
+    });
+
+    startBar(0);
+    play();
+
+    // ---- Local video preview tool (client-side only, does not persist) ----
+    const previewBtn = document.getElementById('videoPreviewBtn');
+    const fileInput = document.getElementById('heroVideoInput');
+    const note = document.getElementById('videoPreviewNote');
+    let activeObjectUrl = null;
+
+    previewBtn.addEventListener('click', () => {
+      if(previewBtn.dataset.active === '1'){
+        // remove preview, restore original image slide
+        const slide = slides[0];
+        const vid = slide.querySelector('video.hero-media');
+        if(vid){ vid.remove(); }
+        slide.querySelector('img.hero-media')?.classList.remove('hidden');
+        if(activeObjectUrl){ URL.revokeObjectURL(activeObjectUrl); activeObjectUrl = null; }
+        previewBtn.textContent = 'Preview Your Video in Slide 1';
+        previewBtn.dataset.active = '0';
+        note.classList.add('hidden');
+      } else {
+        fileInput.click();
+      }
+    });
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if(!file) return;
+      const slide = slides[0];
+      const img = slide.querySelector('img.hero-media');
+      activeObjectUrl = URL.createObjectURL(file);
+
+      const video = document.createElement('video');
+      video.className = 'hero-media absolute inset-0 w-full h-full object-cover';
+      video.src = activeObjectUrl;
+      video.muted = true; video.loop = true; video.autoplay = true; video.playsInline = true;
+      if(img) img.classList.add('hidden');
+      slide.insertBefore(video, slide.firstChild);
+
+      if(current !== 0){ goTo(0); play(); }
+      previewBtn.textContent = '✕ Remove Video Preview';
+      previewBtn.dataset.active = '1';
+      note.classList.remove('hidden');
+    });
+  })();
+
   // Mobile nav toggle
   const menuBtn = document.getElementById('menuBtn');
   const mobileNav = document.getElementById('mobileNav');
