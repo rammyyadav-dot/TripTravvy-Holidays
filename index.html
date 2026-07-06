@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trip Travvy Holidays | Tailor-Made Boutique Tours & Travel</title>
+<meta name="description" content="Trip Travvy Holidays designs tailor-made boutique journeys across India and the world — one traveller, one itinerary, one dedicated trip designer at a time.">
+
+<!-- Tailwind CSS (CDN build — swap for a compiled build before production for faster load times) -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+
+<style>
+  body{ font-family:'Plus Jakarta Sans', sans-serif; }
+  h1,h2,h3,.serif-font{ font-family:'Playfair Display', serif; }
+  ::-webkit-scrollbar{ width:8px; }
+  ::-webkit-scrollbar-track{ background:#f1f5f9; }
+  ::-webkit-scrollbar-thumb{ background:#cbd5e1; border-radius:4px; }
+  ::selection{ background:rgba(212,175,55,0.2); color:#78350f; }
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+  details > summary{ list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker{ display:none; }
+  details[open] .faq-icon{ transform:rotate(45deg); }
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+</head>
+<body class="bg-slate-50 text-slate-700 antialiased">
+
+<!-- Top Bar -->
+<div class="bg-slate-900 text-slate-300 text-xs py-2.5 px-6 border-b border-slate-800/60 hidden sm:block">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <div class="flex gap-6">
+      <span class="flex items-center gap-1.5">Call us: <a href="tel:+919876543210" class="text-amber-400 hover:underline font-semibold">+91 98765 43210</a></span>
+      <span class="text-slate-400">Tailor-made journeys, based in Vasai-Virar, Maharashtra</span>
+    </div>
+    <div class="flex gap-4">
+      <a href="#consultation" class="hover:text-white transition">Book a Free Consultation</a>
+      <span class="text-slate-600">|</span>
+      <a href="https://wa.me/919876543210" class="hover:text-amber-300 transition text-amber-400 font-semibold">WhatsApp Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="bg-white/95 backdrop-blur sticky top-0 z-50 border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+    <a href="#" class="flex flex-col leading-none">
+      <span class="text-xl font-black tracking-widest text-slate-950 uppercase">Trip Travvy</span>
+      <span class="text-[10px] tracking-widest font-bold uppercase text-amber-600 mt-1">Holidays</span>
+    </a>
+
+    <nav class="hidden lg:flex gap-8 text-sm font-medium tracking-wide text-slate-800">
+      <a href="#collections" class="hover:text-amber-600 transition">Collections</a>
+      <a href="#process" class="hover:text-amber-600 transition">How It Works</a>
+      <a href="#about" class="hover:text-amber-600 transition">Our Philosophy</a>
+      <a href="#journal" class="hover:text-amber-600 transition">Journal</a>
+      <a href="#faq" class="hover:text-amber-600 transition">FAQs</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="#consultation" class="hidden sm:inline-flex bg-slate-950 hover:bg-amber-600 text-white hover:text-slate-950 px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition duration-300">
+        Design My Trip
+      </a>
+      <button id="menuBtn" aria-label="Menu" class="lg:hidden flex flex-col gap-1.5 p-2">
+        <span class="w-6 h-0.5 bg-slate-900"></span>
+        <span class="w-6 h-0.5 bg-slate-900"></span>
+        <span class="w-6 h-0.5 bg-slate-900"></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobileNav" class="hidden lg:hidden flex-col gap-1 px-6 pb-6 text-sm font-medium text-slate-800 bg-white border-t border-slate-100">
+    <a href="#collections" class="py-3 border-b border-slate-100">Collections</a>
+    <a href="#process" class="py-3 border-b border-slate-100">How It Works</a>
+    <a href="#about" class="py-3 border-b border-slate-100">Our Philosophy</a>
+    <a href="#journal" class="py-3 border-b border-slate-100">Journal</a>
+    <a href="#faq" class="py-3 border-b border-slate-100">FAQs</a>
+    <a href="#consultation" class="mt-4 text-center bg-slate-950 text-white px-5 py-3 rounded-lg text-xs font-bold uppercase tracking-wider">Design My Trip</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="relative min-h-[85vh] flex items-center justify-center text-white overflow-hidden"
+  style="background:linear-gradient(rgba(2,6,23,.55),rgba(2,6,23,.88)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1800&auto=format&fit=crop') center/cover;">
+  <div class="relative max-w-5xl mx-auto px-6 text-center z-10 py-24">
+    <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-amber-300">
+      Tailor-Made Boutique Journeys · Vasai-Virar, Maharashtra
+    </div>
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight mb-6 max-w-4xl mx-auto leading-tight">
+      Holidays shaped around <span class="italic text-amber-300">your rhythm.</span>
+    </h1>
+    <p class="max-w-2xl mx-auto text-slate-200 text-base sm:text-lg font-light leading-relaxed mb-10">
+      No fixed departures, no batch itineraries. Every Trip Travvy Holidays trip is designed from scratch by a dedicated trip designer — around your budget, your pace, and the people you're travelling with.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#collections" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-8 py-4 rounded-lg text-xs font-extrabold uppercase tracking-widest shadow-xl transition duration-200">Explore Collections</a>
+      <a href="#consultation" class="border border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-md px-8 py-4 rounded-lg text-xs font-bold uppercase tracking-widest transition duration-200">Talk to a Trip Designer</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stat bar -->
+<section class="bg-slate-950 text-white border-t border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+    <div class="reveal"><div class="text-3xl sm:text-4xl font-black text-amber-400 serif-font">1,300+</div><div class="text-[11px] uppercase tracking-widest text-slate-400 mt-1">Journeys Designed</div></div>
+    <div class="reveal"><div class="text-3xl sm:text-4xl font-black text-amber-400 serif-font">40+</div><div class="text-[11px] uppercase tracking-widest text-slate-400 mt-1">Countries Curated</div></div>
+    <div class="reveal"><div class="text-3xl sm:text-4xl font-black text-amber-400 serif-font">11</div><div class="text-[11px] uppercase tracking-widest text-slate-400 mt-1">Years in Business</div></div>
+    <div class="reveal"><div class="text-3xl sm:text-4xl font-black text-amber-400 serif-font">4.9/5</div><div class="text-[11px] uppercase tracking-widest text-slate-400 mt-1">Average Client Rating</div></div>
+  </div>
+</section>
+
+<!-- USP strip -->
+<section class="max-w-7xl mx-auto px-6 py-20">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="reveal p-6 rounded-xl border border-slate-200/70">
+      <div class="w-11 h-11 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+      </div>
+      <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2">One Dedicated Trip Designer</h3>
+      <p class="text-slate-500 text-sm font-light leading-relaxed">A single point of contact designs, revises and supports your entire journey — not a rotating call centre.</p>
+    </div>
+    <div class="reveal p-6 rounded-xl border border-slate-200/70">
+      <div class="w-11 h-11 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2">Personally Vetted Partners</h3>
+      <p class="text-slate-500 text-sm font-light leading-relaxed">Hotels, guides and drivers are chosen for quality and revisited regularly — not rotated for commission.</p>
+    </div>
+    <div class="reveal p-6 rounded-xl border border-slate-200/70">
+      <div class="w-11 h-11 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      </div>
+      <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2">Transparent, Itemised Pricing</h3>
+      <p class="text-slate-500 text-sm font-light leading-relaxed">You see exactly what each night, transfer and experience costs — no bundled surprises at checkout.</p>
+    </div>
+    <div class="reveal p-6 rounded-xl border border-slate-200/70">
+      <div class="w-11 h-11 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      </div>
+      <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2">Support Through Departure</h3>
+      <p class="text-slate-500 text-sm font-light leading-relaxed">Your trip designer stays reachable for the length of your trip — for the plan change no brochure predicts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Collections -->
+<section id="collections" class="max-w-7xl mx-auto px-6 py-20">
+  <div class="max-w-2xl mx-auto text-center mb-16">
+    <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-3">Signature Collections</span>
+    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Holidays Worth Building From Scratch</h2>
+    <div class="w-16 h-0.5 bg-amber-500 mx-auto mb-4"></div>
+    <p class="text-slate-500 font-light text-sm sm:text-base">Each collection below is a starting pattern, not a fixed package — reshaped around your dates, budget and pace before it's ever booked.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <article class="reveal group bg-white rounded-xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full">
+      <div class="relative overflow-hidden aspect-[4/3] bg-slate-100">
+        <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1000&auto=format&fit=crop" alt="Bali rice terraces and villa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+        <span class="absolute top-4 left-4 bg-slate-950 text-amber-400 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded">International</span>
+      </div>
+      <div class="p-6 flex flex-col flex-grow">
+        <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest mb-1">6–9 Days · Honeymoon Friendly</span>
+        <h3 class="text-2xl font-semibold text-slate-900 mb-3 group-hover:text-amber-600 transition">Bali, Beyond the Postcards</h3>
+        <p class="text-slate-500 text-sm font-light leading-relaxed mb-6">Rice-terrace villas, a private Ubud chef, and quiet beaches on the Bukit peninsula — paced away from the tour-bus circuit.</p>
+        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+          <div><span class="block text-[10px] uppercase tracking-widest text-slate-400 font-bold">Starting From</span><span class="text-xl font-black text-slate-950">₹65,000</span><span class="text-xs text-slate-400"> / person</span></div>
+          <a href="#consultation" class="bg-slate-950 group-hover:bg-amber-500 text-amber-400 group-hover:text-slate-950 p-2.5 rounded-lg transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="reveal group bg-white rounded-xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full">
+      <div class="relative overflow-hidden aspect-[4/3] bg-slate-100">
+        <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=1000&auto=format&fit=crop" alt="Maldives overwater villas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+        <span class="absolute top-4 left-4 bg-slate-950 text-amber-400 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded">Islands</span>
+      </div>
+      <div class="p-6 flex flex-col flex-grow">
+        <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest mb-1">5–7 Days · Two Ways to Travel</span>
+        <h3 class="text-2xl font-semibold text-slate-900 mb-3 group-hover:text-amber-600 transition">Maldives, Overwater or Local Island</h3>
+        <p class="text-slate-500 text-sm font-light leading-relaxed mb-6">An overwater honeymoon stay, or a budget-conscious local-island route — both planned with the same care.</p>
+        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+          <div><span class="block text-[10px] uppercase tracking-widest text-slate-400 font-bold">Starting From</span><span class="text-xl font-black text-slate-950">₹1,10,000</span><span class="text-xs text-slate-400"> / person</span></div>
+          <a href="#consultation" class="bg-slate-950 group-hover:bg-amber-500 text-amber-400 group-hover:text-slate-950 p-2.5 rounded-lg transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="reveal group bg-white rounded-xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full">
+      <div class="relative overflow-hidden aspect-[4/3] bg-slate-100">
+        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1000&auto=format&fit=crop" alt="Santorini Greece" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+        <span class="absolute top-4 left-4 bg-slate-950 text-amber-400 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded">European Escape</span>
+      </div>
+      <div class="p-6 flex flex-col flex-grow">
+        <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest mb-1">8–11 Days · Heritage &amp; Coast</span>
+        <h3 class="text-2xl font-semibold text-slate-900 mb-3 group-hover:text-amber-600 transition">Greek Isles, Reimagined</h3>
+        <p class="text-slate-500 text-sm font-light leading-relaxed mb-6">Santorini sunsets, Naxos back-lanes, and a private caïque between islands most itineraries skip entirely.</p>
+        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+          <div><span class="block text-[10px] uppercase tracking-widest text-slate-400 font-bold">Starting From</span><span class="text-xl font-black text-slate-950">₹2,10,000</span><span class="text-xs text-slate-400"> / person</span></div>
+          <a href="#consultation" class="bg-slate-950 group-hover:bg-amber-500 text-amber-400 group-hover:text-slate-950 p-2.5 rounded-lg transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="reveal group bg-white rounded-xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full">
+      <div class="relative overflow-hidden aspect-[4/3] bg-slate-100">
+        <img src="https://images.unsplash.com/photo-1600100397608-f7febc531f66?q=80&w=1000&auto=format&fit=crop" alt="Kerala backwaters houseboat" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+        <span class="absolute top-4 left-4 bg-slate-950 text-amber-400 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded">India</span>
+      </div>
+      <div class="p-6 flex flex-col flex-grow">
+        <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest mb-1">5–8 Days · Family Friendly</span>
+        <h3 class="text-2xl font-semibold text-slate-900 mb-3 group-hover:text-amber-600 transition">Kerala Backwaters &amp; Bluffs</h3>
+        <p class="text-slate-500 text-sm font-light leading-relaxed mb-6">A private houseboat through Alleppey, tea gardens in Munnar, and a Fort Kochi finish, paced for every generation.</p>
+        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+          <div><span class="block text-[10px] uppercase tracking-widest text-slate-400 font-bold">Starting From</span><span class="text-xl font-black text-slate-950">₹38,000</span><span class="text-xs text-slate-400"> / person</span></div>
+          <a href="#consultation" class="bg-slate-950 group-hover:bg-amber-500 text-amber-400 group-hover:text-slate-950 p-2.5 rounded-lg transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="reveal group bg-white rounded-xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full">
+      <div class="relative overflow-hidden aspect-[4/3] bg-slate-100">
+        <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=1000&auto=format&fit=crop" alt="Swiss Alps train" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+        <span class="absolute top-4 left-4 bg-slate-950 text-amber-400 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded">European Escape</span>
+      </div>
+      <div class="p-6 flex flex-col flex-grow">
+        <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest mb-1">9–12 Days · Rail Journey</span>
+        <h3 class="text-2xl font-semibold text-slate-900 mb-3 group-hover:text-amber-600 transition">Swiss Alps by Rail</h3>
+        <p class="text-slate-500 text-sm font-light leading-relaxed mb-6">Glacier expresses, lakeside towns, and one very good fondue stop in Gruyères along the way.</p>
+        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+          <div><span class="block text-[10px] uppercase tracking-widest text-slate-400 font-bold">Starting From</span><span class="text-xl font-black text-slate-950">₹2,45,000</span><span class="text-xs text-slate-400"> / person</span></div>
+          <a href="#consultation" class="bg-slate-950 group-hover:bg-amber-500 text-amber-400 group-hover:text-slate-950 p-2.5 rounded-lg transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="reveal group bg-white rounded-xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full">
+      <div class="relative overflow-hidden aspect-[4/3] bg-slate-100">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000&auto=format&fit=crop" alt="Dubai skyline" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+        <span class="absolute top-4 left-4 bg-slate-950 text-amber-400 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded">Middle East</span>
+      </div>
+      <div class="p-6 flex flex-col flex-grow">
+        <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest mb-1">6–8 Days · Family Discovery</span>
+        <h3 class="text-2xl font-semibold text-slate-900 mb-3 group-hover:text-amber-600 transition">Dubai &amp; Abu Dhabi, Unhurried</h3>
+        <p class="text-slate-500 text-sm font-light leading-relaxed mb-6">Desert dusk safaris, old Al Fahidi lanes, and skyline dinners — paced for families, not queues.</p>
+        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+          <div><span class="block text-[10px] uppercase tracking-widest text-slate-400 font-bold">Starting From</span><span class="text-xl font-black text-slate-950">₹72,000</span><span class="text-xs text-slate-400"> / person</span></div>
+          <a href="#consultation" class="bg-slate-950 group-hover:bg-amber-500 text-amber-400 group-hover:text-slate-950 p-2.5 rounded-lg transition duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="text-center mt-14">
+    <p class="text-slate-500 text-sm mb-4">Prices shown are indicative starting fares per person on a twin-sharing basis and vary with season, hotel category and inclusions.</p>
+    <a href="#consultation" class="inline-flex items-center gap-2 border border-slate-300 hover:border-amber-500 hover:text-amber-600 px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition">Don't See Your Destination? Ask Us</a>
+  </div>
+</section>
+
+<!-- Philosophy / About -->
+<section id="about" class="bg-slate-950 text-white py-24 px-6">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="reveal">
+      <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-3">Our Philosophy</span>
+      <h2 class="text-3xl sm:text-5xl font-light tracking-tight text-white mb-6 leading-tight">
+        Why travellers choose <br><span class="italic font-normal text-amber-300">Trip Travvy Holidays</span>
+      </h2>
+      <p class="text-slate-300 font-light leading-relaxed mb-10 text-sm sm:text-base">
+        We started in Vasai-Virar planning trips for neighbours and friends who found fixed departures never quite fit — the pace, the budget, or the people they were travelling with. That's still the whole idea: one itinerary, one client, built from a blank page every time.
+      </p>
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <span class="bg-amber-400/10 text-amber-400 w-9 h-9 flex items-center justify-center rounded-lg font-bold text-xs shrink-0">01</span>
+          <div>
+            <h4 class="font-bold text-slate-100 text-sm uppercase tracking-wide">No Fixed Templates</h4>
+            <p class="text-slate-400 text-xs mt-1 font-light leading-relaxed">Every itinerary starts from your specific measurements — never a rack of pre-built packages resold to twenty different families.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="bg-amber-400/10 text-amber-400 w-9 h-9 flex items-center justify-center rounded-lg font-bold text-xs shrink-0">02</span>
+          <div>
+            <h4 class="font-bold text-slate-100 text-sm uppercase tracking-wide">Partners We've Personally Vetted</h4>
+            <p class="text-slate-400 text-xs mt-1 font-light leading-relaxed">Hotels, guides and drivers are chosen for quality and revisited often — not rotated for whoever pays the highest commission.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="bg-amber-400/10 text-amber-400 w-9 h-9 flex items-center justify-center rounded-lg font-bold text-xs shrink-0">03</span>
+          <div>
+            <h4 class="font-bold text-slate-100 text-sm uppercase tracking-wide">Costs, Itemised in Full</h4>
+            <p class="text-slate-400 text-xs mt-1 font-light leading-relaxed">You see exactly what each night, transfer and experience costs before you ever confirm a booking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative reveal">
+      <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop" alt="Travel planning desk" class="rounded-xl shadow-2xl relative z-10 w-full object-cover aspect-[4/3]" onerror="this.style.display='none'">
+      <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-amber-500/10 border border-amber-500/20 rounded-xl -z-0"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section id="process" class="max-w-7xl mx-auto px-6 py-24">
+  <div class="max-w-2xl mx-auto text-center mb-16">
+    <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-3">How It Works</span>
+    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Four Fittings, From First Call to Departure</h2>
+    <div class="w-16 h-0.5 bg-amber-500 mx-auto"></div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="reveal text-center">
+      <div class="w-14 h-14 mx-auto rounded-full border-2 border-amber-500 flex items-center justify-center text-amber-600 font-bold serif-font text-lg mb-5">1</div>
+      <h3 class="font-bold text-slate-900 mb-2">Discovery Call</h3>
+      <p class="text-slate-500 text-sm font-light leading-relaxed">A 20-minute conversation on your budget, dates, pace and must-sees.</p>
+    </div>
+    <div class="reveal text-center">
+      <div class="w-14 h-14 mx-auto rounded-full border-2 border-amber-500 flex items-center justify-center text-amber-600 font-bold serif-font text-lg mb-5">2</div>
+      <h3 class="font-bold text-slate-900 mb-2">Custom Itinerary</h3>
+      <p class="text-slate-500 text-sm font-light leading-relaxed">A day-by-day route with itemised costs, delivered within 3–5 business days.</p>
+    </div>
+    <div class="reveal text-center">
+      <div class="w-14 h-14 mx-auto rounded-full border-2 border-amber-500 flex items-center justify-center text-amber-600 font-bold serif-font text-lg mb-5">3</div>
+      <h3 class="font-bold text-slate-900 mb-2">Refine &amp; Confirm</h3>
+      <p class="text-slate-500 text-sm font-light leading-relaxed">Unlimited revisions until it fits, then we lock in your bookings.</p>
+    </div>
+    <div class="reveal text-center">
+      <div class="w-14 h-14 mx-auto rounded-full border-2 border-amber-500 flex items-center justify-center text-amber-600 font-bold serif-font text-lg mb-5">4</div>
+      <h3 class="font-bold text-slate-900 mb-2">Travel, Supported</h3>
+      <p class="text-slate-500 text-sm font-light leading-relaxed">Your trip designer stays reachable for the entire length of your trip.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="bg-amber-50/60 py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-wrap items-end justify-between gap-4 mb-14">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-3">In Their Words</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Trusted by Travellers Across Maharashtra</h2>
+      </div>
+      <div class="inline-flex items-center gap-2 border border-amber-300 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-widest text-amber-700">4.9 / 5 · 210+ Reviews</div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="reveal bg-white rounded-xl p-8 border border-slate-200/70">
+        <div class="flex gap-1 text-amber-500 mb-4">★★★★★</div>
+        <p class="serif-font italic text-lg text-slate-800 leading-relaxed mb-6">"They rebuilt our entire Bali route around my mother-in-law's knees and my toddler's nap schedule. That level of care doesn't exist in a brochure."</p>
+        <div class="text-xs uppercase tracking-widest text-slate-500 font-bold">Priyanka S. · Virar</div>
+      </div>
+      <div class="reveal bg-white rounded-xl p-8 border border-slate-200/70">
+        <div class="flex gap-1 text-amber-500 mb-4">★★★★★</div>
+        <p class="serif-font italic text-lg text-slate-800 leading-relaxed mb-6">"Every hotel, every guide, every transfer felt hand-picked. Nothing about it felt like a package tour — because it wasn't one."</p>
+        <div class="text-xs uppercase tracking-widest text-slate-500 font-bold">Rohan &amp; Meera D. · Nallasopara</div>
+      </div>
+      <div class="reveal bg-white rounded-xl p-8 border border-slate-200/70">
+        <div class="flex gap-1 text-amber-500 mb-4">★★★★★</div>
+        <p class="serif-font italic text-lg text-slate-800 leading-relaxed mb-6">"We booked our parents' first trip abroad through Trip Travvy. They called every hour worried something would go wrong. Nothing ever did."</p>
+        <div class="text-xs uppercase tracking-widest text-slate-500 font-bold">Anish K. · Vasai</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Journal -->
+<section id="journal" class="max-w-7xl mx-auto px-6 py-24">
+  <div class="max-w-2xl mx-auto text-center mb-16">
+    <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-3">The Journal</span>
+    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Notes From the Road</h2>
+    <div class="w-16 h-0.5 bg-amber-500 mx-auto"></div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <a href="#" class="reveal group block">
+      <div class="rounded-xl overflow-hidden aspect-[4/3] mb-4 bg-slate-100">
+        <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=800&auto=format&fit=crop" alt="Konkan coast" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+      </div>
+      <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest">Weekend Trips</span>
+      <h3 class="font-bold text-slate-900 mt-2 group-hover:text-amber-600 transition">Five Konkan Coast Escapes Within a Day's Drive of Vasai-Virar</h3>
+    </a>
+    <a href="#" class="reveal group block">
+      <div class="rounded-xl overflow-hidden aspect-[4/3] mb-4 bg-slate-100">
+        <img src="https://images.unsplash.com/photo-1587922546307-776227941871?q=80&w=800&auto=format&fit=crop" alt="Ladakh mountains" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+      </div>
+      <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest">Planning Guide</span>
+      <h3 class="font-bold text-slate-900 mt-2 group-hover:text-amber-600 transition">Ladakh With Parents: Altitude, Pacing and What We'd Do Differently</h3>
+    </a>
+    <a href="#" class="reveal group block">
+      <div class="rounded-xl overflow-hidden aspect-[4/3] mb-4 bg-slate-100">
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800&auto=format&fit=crop" alt="Japan travel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+      </div>
+      <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest">Destination Guide</span>
+      <h3 class="font-bold text-slate-900 mt-2 group-hover:text-amber-600 transition">When to Visit Japan: Cherry Blossom vs. Autumn Colour</h3>
+    </a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-slate-100 py-24 px-6">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-3">Good to Know</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Frequently Asked Questions</h2>
+    </div>
+    <div class="space-y-4">
+      <details class="reveal group bg-white rounded-xl border border-slate-200/70 p-6" open>
+        <summary class="flex items-center justify-between font-semibold text-slate-900">How is this different from a regular package tour?<span class="faq-icon text-amber-500 text-2xl leading-none transition-transform">+</span></summary>
+        <p class="text-slate-500 text-sm font-light leading-relaxed mt-4">Package tours run on fixed dates and shared buses, built to a lowest-common-denominator pace. We start with a blank page and design your route, stays and pacing specifically around your group — nothing is templated or resold as-is to other travellers.</p>
+      </details>
+      <details class="reveal group bg-white rounded-xl border border-slate-200/70 p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">What's actually included in the quoted price?<span class="faq-icon text-amber-500 text-2xl leading-none transition-transform">+</span></summary>
+        <p class="text-slate-500 text-sm font-light leading-relaxed mt-4">Every itinerary comes with an itemised cost sheet showing accommodation, transfers, listed experiences and applicable taxes separately, so you know exactly what you're paying for before confirming anything.</p>
+      </details>
+      <details class="reveal group bg-white rounded-xl border border-slate-200/70 p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">How far in advance should I book?<span class="faq-icon text-amber-500 text-2xl leading-none transition-transform">+</span></summary>
+        <p class="text-slate-500 text-sm font-light leading-relaxed mt-4">For international trips and peak season travel, 6–10 weeks gives us the best hotel and flight availability. Domestic and off-season trips can often be arranged in 2–3 weeks.</p>
+      </details>
+      <details class="reveal group bg-white rounded-xl border border-slate-200/70 p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">Do you help with visas and documentation?<span class="faq-icon text-amber-500 text-2xl leading-none transition-transform">+</span></summary>
+        <p class="text-slate-500 text-sm font-light leading-relaxed mt-4">Yes — we provide a full document checklist and guidance for visa applications on every international itinerary we design.</p>
+      </details>
+      <details class="reveal group bg-white rounded-xl border border-slate-200/70 p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">What happens if plans change mid-trip?<span class="faq-icon text-amber-500 text-2xl leading-none transition-transform">+</span></summary>
+        <p class="text-slate-500 text-sm font-light leading-relaxed mt-4">Your trip designer remains reachable for the entire length of your trip — for a delayed flight, a closed site, or simply wanting to adjust the plan on the ground.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="bg-slate-950 py-16 px-6">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-2xl sm:text-3xl font-light text-white mb-3">Get Route Ideas Before Everyone Else</h2>
+    <p class="text-slate-400 text-sm font-light mb-8">Occasional destination guides and seasonal fare drops — no spam, unsubscribe anytime.</p>
+    <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓';">
+      <input type="email" required placeholder="you@email.com" class="flex-1 px-4 py-3 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500">
+      <button class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold uppercase tracking-wider text-xs px-6 py-3 rounded-lg transition">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- Consultation -->
+<section id="consultation" class="max-w-4xl mx-auto px-6 py-24">
+  <div class="bg-white rounded-2xl border border-slate-200/80 p-8 sm:p-12 shadow-xl text-center">
+    <span class="text-amber-600 text-xs font-bold uppercase tracking-widest block mb-2">Free Consultation</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-4">Request a Tailor-Made Itinerary</h2>
+    <p class="text-slate-500 font-light text-sm max-w-lg mx-auto mb-8">Tell us your destination and dates, and a trip designer will call within one business day with a first draft plan.</p>
+
+    <form class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left" onsubmit="event.preventDefault(); document.getElementById('formSuccess').classList.remove('hidden'); this.querySelector('button').textContent='Request Sent ✓'; this.querySelector('button').classList.add('opacity-60');">
+      <div>
+        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Full Name</label>
+        <input type="text" placeholder="Your name" class="w-full border border-slate-200 rounded-lg p-3 text-sm focus:outline-none focus:border-amber-500" required>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Phone / WhatsApp</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX" class="w-full border border-slate-200 rounded-lg p-3 text-sm focus:outline-none focus:border-amber-500" required>
+      </div>
+      <div class="sm:col-span-2">
+        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Destination or Trip Style</label>
+        <input type="text" placeholder="e.g. Bali honeymoon, Kerala family trip" class="w-full border border-slate-200 rounded-lg p-3 text-sm focus:outline-none focus:border-amber-500" required>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Approx. Travel Dates</label>
+        <input type="text" placeholder="e.g. Dec 2026, 7 days" class="w-full border border-slate-200 rounded-lg p-3 text-sm focus:outline-none focus:border-amber-500">
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Budget Range (per person)</label>
+        <select class="w-full border border-slate-200 rounded-lg p-3 text-sm focus:outline-none focus:border-amber-500">
+          <option>Under ₹50,000</option>
+          <option>₹50,000 – ₹1,00,000</option>
+          <option>₹1,00,000 – ₹2,00,000</option>
+          <option>₹2,00,000+</option>
+        </select>
+      </div>
+      <button type="submit" class="sm:col-span-2 bg-slate-950 text-amber-400 hover:bg-amber-500 hover:text-slate-950 font-bold uppercase tracking-widest text-xs py-4 rounded-xl mt-2 transition duration-300 cursor-pointer">
+        Request My Free Itinerary Draft
+      </button>
+    </form>
+    <div id="formSuccess" class="hidden mt-6 p-4 rounded-lg bg-amber-50 text-amber-800 text-sm border border-amber-200">Thank you — a Trip Travvy Holidays trip designer will reach out within one business day.</div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-slate-950 text-slate-400 text-sm py-16 px-6 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+    <div>
+      <h4 class="text-white font-black tracking-widest uppercase mb-4 text-sm">Trip Travvy Holidays</h4>
+      <p class="font-light leading-relaxed text-slate-400 text-sm max-w-xs">A tailor-made boutique tour operator based in Vasai-Virar, Maharashtra, designing considered journeys across India and abroad.</p>
+      <div class="flex gap-3 mt-5 text-slate-400">
+        <a href="#" aria-label="Instagram" class="hover:text-amber-400 transition">Instagram</a>
+        <span class="text-slate-700">·</span>
+        <a href="#" aria-label="Facebook" class="hover:text-amber-400 transition">Facebook</a>
+        <span class="text-slate-700">·</span>
+        <a href="https://wa.me/919876543210" class="hover:text-amber-400 transition">WhatsApp</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white font-bold tracking-wider uppercase mb-4 text-xs">Explore</h4>
+      <ul class="space-y-2 font-light">
+        <li><a href="#collections" class="hover:text-amber-400 transition">Collections</a></li>
+        <li><a href="#process" class="hover:text-amber-400 transition">How It Works</a></li>
+        <li><a href="#journal" class="hover:text-amber-400 transition">Journal</a></li>
+        <li><a href="#about" class="hover:text-amber-400 transition">Our Philosophy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold tracking-wider uppercase mb-4 text-xs">Support</h4>
+      <ul class="space-y-2 font-light">
+        <li><a href="#faq" class="hover:text-amber-400 transition">FAQs</a></li>
+        <li><a href="#" class="hover:text-amber-400 transition">Terms of Service</a></li>
+        <li><a href="#" class="hover:text-amber-400 transition">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-amber-400 transition">Cancellation Policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold tracking-wider uppercase mb-4 text-xs">Get in Touch</h4>
+      <p class="font-light leading-relaxed text-slate-400 text-sm">
+        Vasai-Virar, Maharashtra 401202, India<br><br>
+        <a href="tel:+919876543210" class="hover:text-amber-400 transition">+91 98765 43210</a><br>
+        <a href="mailto:hello@triptravvyholidays.in" class="hover:text-amber-400 transition">hello@triptravvyholidays.in</a>
+      </p>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto pt-8 border-t border-slate-800/60 text-center text-xs text-slate-500">
+    &copy; 2026 Trip Travvy Holidays. All rights reserved. Tailor-made boutique tours &amp; travel.
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  menuBtn?.addEventListener('click', () => {
+    mobileNav.classList.toggle('hidden');
+    mobileNav.classList.toggle('flex');
+  });
+  mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.add('hidden'); mobileNav.classList.remove('flex');
+  }));
+
+  // Scroll reveal with safety fallback
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
+    }, {threshold:0.1});
+    revealEls.forEach(el => io.observe(el));
+    window.addEventListener('load', () => setTimeout(() => revealEls.forEach(el => el.classList.add('in-view')), 2500));
+  } else {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  }
+</script>
+
+</body>
+</html>
