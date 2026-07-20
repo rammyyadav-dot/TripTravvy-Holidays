@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tailor-Made Holiday Packages in Vasai-Virar &amp; Mumbai | Trip Travvy Holidays</title>
-<meta name="description" content="Trip Travvy Holidays is a boutique tailor-made tour operator based in Vasai-Virar, serving Mumbai, Thane, Navi Mumbai &amp; Pan-India. One traveller, one itinerary, one dedicated trip designer — for India &amp; international holidays.">
+<meta name="description" content="Trip Travvy Holidays is a boutique tailor-made tour operator based in Vasai-Virar, serving Mumbai, Thane, Navi Mumbai &amp; the MMR. One traveller, one itinerary, one dedicated trip designer — for India &amp; international holidays.">
 <meta name="keywords" content="tour operator Vasai-Virar, travel agent Mumbai, holiday packages Mumbai Metropolitan Region, tailor-made tours Thane, custom itinerary Navi Mumbai, trip planner Vasai Virar Nalasopara, best travel agency near me MMR">
 <link rel="canonical" href="https://www.triptravvy.in/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -159,6 +159,32 @@
   .hero-media{ transition:transform 8s ease-out; transform:scale(1.06); }
   .hero-slide.opacity-100 .hero-media{ transform:scale(1); }
   video.hero-media{ filter:brightness(1.25) contrast(1.05) saturate(1.1); }
+
+  /* Trending destinations marquee */
+  .marquee-track{ width:max-content; animation:marqueeScroll 110s linear infinite; }
+  .marquee-track:hover{ animation-play-state:paused; }
+  @keyframes marqueeScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce){ .marquee-track{ animation:none; overflow-x:auto; } }
+
+  /* Scroll effects: progress bar, ambient background shift, header state, floating headings */
+  html{ scroll-behavior:smooth; }
+  body{ transition:background-color .7s ease; }
+  #scrollProgress{ position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,#f59e0b,#fbbf24); z-index:60; transition:width .1s linear; }
+  header#siteHeader{ transition:box-shadow .35s ease, background-color .35s ease; }
+  header#siteHeader.is-scrolled{ box-shadow:0 8px 24px -12px rgba(2,6,23,.18); }
+  .parallax-heading{ will-change:transform; }
+  @media (prefers-reduced-motion: reduce){ .parallax-heading{ transform:none !important; } }
+
+  /* India Hidden Gems — card carousel */
+  .gems-track{ scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; -ms-overflow-style:none; }
+  .gems-track::-webkit-scrollbar{ display:none; }
+  .gems-card{ scroll-snap-align:start; transition:transform .3s ease, box-shadow .3s ease; }
+  .gems-card:hover{ transform:scale(1.03); box-shadow:0 20px 40px -18px rgba(2,6,23,.35); }
+  .gems-clamp{ display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
+  .gems-arrow{ transition:background-color .25s ease, border-color .25s ease, color .25s ease; }
+  .gems-arrow:hover{ background-color:#f59e0b; border-color:#f59e0b; color:#020617; }
+  .gems-arrow:disabled{ opacity:.35; cursor:not-allowed; }
+  .gems-arrow:disabled:hover{ background-color:transparent; border-color:inherit; color:inherit; }
   .hero-dot{ width:34px; height:3px; border-radius:2px; background:rgba(255,255,255,.3); position:relative; overflow:hidden; padding:0; border:none; cursor:pointer; }
   .hero-dot .bar{ position:absolute; inset:0; background:#f59e0b; transform:scaleX(0); transform-origin:left; }
   .hero-dot .bar.running{ animation-name:heroFill; animation-timing-function:linear; animation-fill-mode:forwards; }
@@ -168,6 +194,8 @@
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body class="bg-slate-50 text-slate-700 antialiased">
+
+<div id="scrollProgress" aria-hidden="true"></div>
 
 <!-- Top Bar -->
 <div class="bg-slate-900 text-slate-300 text-xs py-2.5 px-6 border-b border-slate-800/60 hidden sm:block">
@@ -184,8 +212,94 @@
   </div>
 </div>
 
+<!-- Trending Destinations Marquee -->
+<!-- NOTE: the 4 "live deal" items below (marked data-deal) are placeholder marketing copy with
+     illustrative ₹ figures — swap in real, currently-bookable offers before this goes live so no
+     discount claim is left unverified. -->
+<div class="bg-slate-950 border-b border-amber-500/20 overflow-hidden">
+  <div class="marquee-track flex items-center whitespace-nowrap py-2.5">
+    <div class="marquee-group flex items-center">
+      <span class="mx-4 text-[10px] font-bold uppercase tracking-widest text-amber-400 shrink-0">Trending International</span>
+      <span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏝️ Bora Bora Beachfront Bliss</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏝️ Fiji Floating Villa Fiesta</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏝️ Phuket Sun-Kissed Shores</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏝️ Maldives Turquoise Tranquility</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏝️ Maui Oceanfront Opulence</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏙️ Seoul Soulful K-Culture</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏙️ Singapore Skyline Spectacular</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏙️ New York Empire State Express</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏙️ Bangkok Non-Stop Bazaar</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏙️ London Royal Heritage</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏛️ Santorini Sunset Serenade</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏛️ Kyoto Ancient Shrine Chronicles</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏛️ Rome Gladiator &amp; Gelato</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏛️ Barcelona Gaudí Architecture</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏛️ Cairo Pyramids &amp; Pharaohs</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ Patagonia Glacial Wilderness</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ Serengeti Big Five Safari</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ New Zealand Extreme Peaks</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ Costa Rica Rainforest Eco-Trek</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ Banff Emerald Lake Expedition</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🌴 Bali Bliss Getaway</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🗼 Tokyo Lights Explorer</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🥐 Parisian Romance Tour</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🌊 Amalfi Coast Escape</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ Swiss Alps Adventure</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🐪 Dubai Luxury Safari</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏖️ Phuket Island Paradise</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🌌 Icelandic Northern Lights</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-[10px] font-bold uppercase tracking-widest text-amber-400 shrink-0">Live Deals</span>
+      <span class="text-slate-700">•</span>
+      <span data-deal class="mx-4 text-xs font-semibold text-amber-300">🛸 Flash Sale: Bali Getaways — Save 40% on 5-Star Resorts</span><span class="text-slate-700">•</span>
+      <span data-deal class="mx-4 text-xs font-semibold text-amber-300">✈️ Flight Deal: Tokyo Return Fares from ₹42,000</span><span class="text-slate-700">•</span>
+      <span data-deal class="mx-4 text-xs font-semibold text-amber-300">🍷 Europe Special: Paris &amp; Rome Multi-City — Extra ₹15,000 Off</span><span class="text-slate-700">•</span>
+      <span data-deal class="mx-4 text-xs font-semibold text-amber-300">🏝️ All-Inclusive: Maldives Overwater Villas — Book 4 Nights, Get 1 Free</span><span class="text-slate-700">•</span>
+    </div>
+    <!-- duplicate group for a seamless, gap-free scroll loop -->
+    <div class="marquee-group flex items-center" aria-hidden="true">
+      <span class="mx-4 text-[10px] font-bold uppercase tracking-widest text-amber-400 shrink-0">Trending International</span>
+      <span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏝️ Bora Bora Beachfront Bliss</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏝️ Fiji Floating Villa Fiesta</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏝️ Phuket Sun-Kissed Shores</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏝️ Maldives Turquoise Tranquility</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏝️ Maui Oceanfront Opulence</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏙️ Seoul Soulful K-Culture</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏙️ Singapore Skyline Spectacular</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏙️ New York Empire State Express</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏙️ Bangkok Non-Stop Bazaar</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏙️ London Royal Heritage</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏛️ Santorini Sunset Serenade</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏛️ Kyoto Ancient Shrine Chronicles</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏛️ Rome Gladiator &amp; Gelato</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏛️ Barcelona Gaudí Architecture</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏛️ Cairo Pyramids &amp; Pharaohs</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ Patagonia Glacial Wilderness</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ Serengeti Big Five Safari</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ New Zealand Extreme Peaks</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ Costa Rica Rainforest Eco-Trek</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ Banff Emerald Lake Expedition</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🌴 Bali Bliss Getaway</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🗼 Tokyo Lights Explorer</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🥐 Parisian Romance Tour</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🌊 Amalfi Coast Escape</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏔️ Swiss Alps Adventure</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🐪 Dubai Luxury Safari</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🏖️ Phuket Island Paradise</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-xs text-slate-300">🌌 Icelandic Northern Lights</span><span class="text-slate-700">•</span>
+      <span class="mx-4 text-[10px] font-bold uppercase tracking-widest text-amber-400 shrink-0">Live Deals</span>
+      <span class="text-slate-700">•</span>
+      <span data-deal class="mx-4 text-xs font-semibold text-amber-300">🛸 Flash Sale: Bali Getaways — Save 40% on 5-Star Resorts</span><span class="text-slate-700">•</span>
+      <span data-deal class="mx-4 text-xs font-semibold text-amber-300">✈️ Flight Deal: Tokyo Return Fares from ₹42,000</span><span class="text-slate-700">•</span>
+      <span data-deal class="mx-4 text-xs font-semibold text-amber-300">🍷 Europe Special: Paris &amp; Rome Multi-City — Extra ₹15,000 Off</span><span class="text-slate-700">•</span>
+      <span data-deal class="mx-4 text-xs font-semibold text-amber-300">🏝️ All-Inclusive: Maldives Overwater Villas — Book 4 Nights, Get 1 Free</span><span class="text-slate-700">•</span>
+    </div>
+  </div>
+</div>
+
 <!-- Header -->
-<header class="bg-white/95 backdrop-blur sticky top-0 z-50 border-b border-slate-100">
+<header id="siteHeader" class="bg-white/95 backdrop-blur sticky top-0 z-50 border-b border-slate-100">
   <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
     <a href="index.html" class="flex flex-col leading-none">
       <span class="text-xl font-black tracking-widest text-slate-950 uppercase">Trip Travvy</span>
@@ -224,10 +338,10 @@
 </header>
 
 <!-- Hero Carousel -->
-<section id="hero" class="relative min-h-[85vh] flex items-center justify-center text-white overflow-hidden" aria-roledescription="carousel" aria-label="Featured destinations">
+<section id="hero" data-bg="#020617" class="relative min-h-[85vh] flex items-center justify-center text-white overflow-hidden" aria-roledescription="carousel" aria-label="Featured destinations">
 
   <!-- Slides -->
-  <div id="heroSlides" class="absolute inset-0">
+  <div id="heroSlides" class="absolute left-0 right-0" style="top:-12%; height:124%;">
     <!-- Slide 1 — flagship video slot: autoplaying brand film -->
     <div class="hero-slide absolute inset-0 opacity-100" data-index="0" data-name="Trip Travvy Holidays" data-tag="Vasai-Virar's tailor-made trip designers, on film.">
       <video class="hero-media absolute inset-0 w-full h-full object-cover" src="HeroVideo.mp4" poster="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1800&auto=format&fit=crop" autoplay muted loop playsinline preload="auto" aria-label="Trip Travvy Holidays brand film"></video>
@@ -352,7 +466,7 @@
 <section id="collections" class="max-w-7xl mx-auto px-6 py-20">
   <div class="max-w-2xl mx-auto text-center mb-10">
     <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-3">Signature Collections</span>
-    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Holidays Worth Building From Scratch</h2>
+    <h2 class="parallax-heading text-3xl sm:text-4xl font-bold text-slate-900 mb-4" data-speed="0.05">Holidays Worth Building From Scratch</h2>
     <div class="w-16 h-0.5 bg-amber-500 mx-auto mb-4"></div>
     <p class="text-slate-500 font-light text-sm sm:text-base">Each collection below is a starting pattern, not a fixed package — reshaped around your dates, budget and pace before it's ever booked.</p>
   </div>
@@ -481,8 +595,84 @@
   </div>
 </section>
 
+<!-- India Hidden Gems — card carousel -->
+<section id="hidden-gems" class="max-w-7xl mx-auto px-6 py-20">
+  <div class="flex items-end justify-between gap-6 mb-10">
+    <div>
+      <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-3">Off the Beaten Path</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Unlock Lesser-Known Wonders of India</h2>
+    </div>
+    <div class="hidden sm:flex items-center gap-2 shrink-0">
+      <button id="gemsPrev" aria-label="Previous destinations" class="gems-arrow w-10 h-10 rounded-full border border-slate-300 text-slate-500 flex items-center justify-center">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="gemsNext" aria-label="Next destinations" class="gems-arrow w-10 h-10 rounded-full border border-slate-300 text-slate-500 flex items-center justify-center">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="gemsTrack" class="gems-track flex gap-5 overflow-x-auto pb-2 -mx-6 px-6 sm:mx-0 sm:px-0">
+
+    <a href="destinations.html#chail-mashobra" class="gems-card group relative shrink-0 w-56 sm:w-64 h-80 rounded-xl overflow-hidden bg-slate-200">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop" alt="Chail and Mashobra, Shimla's quiet hill retreats" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,0) 55%)"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-4">
+        <p class="text-white font-bold text-base leading-snug gems-clamp">Shimla's Best Kept Secret</p>
+        <p class="text-amber-300 text-xs font-semibold uppercase tracking-wide mt-1">Chail &amp; Mashobra</p>
+      </div>
+    </a>
+
+    <a href="destinations.html#yercaud-kotagiri" class="gems-card group relative shrink-0 w-56 sm:w-64 h-80 rounded-xl overflow-hidden bg-slate-200">
+      <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=800&auto=format&fit=crop" alt="Yercaud and Kotagiri, Tamil Nadu's charming hill towns" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,0) 55%)"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-4">
+        <p class="text-white font-bold text-base leading-snug gems-clamp">Tamil Nadu's Charming Hill Town</p>
+        <p class="text-amber-300 text-xs font-semibold uppercase tracking-wide mt-1">Yercaud &amp; Kotagiri</p>
+      </div>
+    </a>
+
+    <a href="destinations.html#kalimpong-ranikhet" class="gems-card group relative shrink-0 w-56 sm:w-64 h-80 rounded-xl overflow-hidden bg-slate-200">
+      <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?q=80&w=800&auto=format&fit=crop" alt="Kalimpong and Ranikhet, gateways to the Himalayas" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,0) 55%)"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-4">
+        <p class="text-white font-bold text-base leading-snug gems-clamp">Picturesque Gateway to the Himalayas</p>
+        <p class="text-amber-300 text-xs font-semibold uppercase tracking-wide mt-1">Kalimpong &amp; Ranikhet</p>
+      </div>
+    </a>
+
+    <a href="destinations.html#saputara" class="gems-card group relative shrink-0 w-56 sm:w-64 h-80 rounded-xl overflow-hidden bg-slate-200">
+      <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=800&auto=format&fit=crop" alt="Saputara, Gujarat's only hill station" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,0) 55%)"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-4">
+        <p class="text-white font-bold text-base leading-snug gems-clamp">Quaint Little Hill Station in Gujarat</p>
+        <p class="text-amber-300 text-xs font-semibold uppercase tracking-wide mt-1">Saputara</p>
+      </div>
+    </a>
+
+    <a href="destinations.html#auli-manali" class="gems-card group relative shrink-0 w-56 sm:w-64 h-80 rounded-xl overflow-hidden bg-slate-200">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop" alt="Auli and Manali, summer meadows and winter snow" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,0) 55%)"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-4">
+        <p class="text-white font-bold text-base leading-snug gems-clamp">A Pleasant Summer Retreat and a Snowy Winter Wonderland</p>
+        <p class="text-amber-300 text-xs font-semibold uppercase tracking-wide mt-1">Auli &amp; Manali</p>
+      </div>
+    </a>
+
+    <a href="destinations.html#digha-mandarmani" class="gems-card group relative shrink-0 w-56 sm:w-64 h-80 rounded-xl overflow-hidden bg-slate-200">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop" alt="Digha and Mandarmani, seaside retreats in West Bengal" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,0) 55%)"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-4">
+        <p class="text-white font-bold text-base leading-snug gems-clamp">Seaside Resort in West Bengal</p>
+        <p class="text-amber-300 text-xs font-semibold uppercase tracking-wide mt-1">Digha &amp; Mandarmani</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
 <!-- Philosophy / About -->
-<section id="about" class="bg-slate-950 text-white py-24 px-6">
+<section id="about" data-bg="#020617" class="bg-slate-950 text-white py-24 px-6">
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
     <div class="reveal">
       <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-3">Our Philosophy</span>
@@ -531,7 +721,7 @@
 <section id="process" class="max-w-7xl mx-auto px-6 py-24">
   <div class="max-w-2xl mx-auto text-center mb-16">
     <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-3">How It Works</span>
-    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Four Fittings, From First Call to Departure</h2>
+    <h2 class="parallax-heading text-3xl sm:text-4xl font-bold text-slate-900 mb-4" data-speed="0.06">Four Fittings, From First Call to Departure</h2>
     <div class="w-16 h-0.5 bg-amber-500 mx-auto"></div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -570,7 +760,7 @@
     <div class="flex flex-wrap items-end justify-between gap-4 mb-14">
       <div>
         <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-3">In Their Words</span>
-        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Trusted by Travellers Across Vasai-Virar &amp; the MMR</h2>
+        <h2 class="parallax-heading text-3xl sm:text-4xl font-bold text-slate-900" data-speed="0.045">Trusted by Travellers Across Vasai-Virar &amp; the MMR</h2>
       </div>
       <div class="inline-flex items-center gap-2 border border-amber-300 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-widest text-amber-700">4.9 / 5 · 210+ Reviews</div>
     </div>
@@ -598,7 +788,7 @@
 <section id="journal" class="max-w-7xl mx-auto px-6 py-24">
   <div class="max-w-2xl mx-auto text-center mb-16">
     <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-3">The Journal</span>
-    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Notes From the Road</h2>
+    <h2 class="parallax-heading text-3xl sm:text-4xl font-bold text-slate-900 mb-4" data-speed="0.07">Notes From the Road</h2>
     <div class="w-16 h-0.5 bg-amber-500 mx-auto"></div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -631,7 +821,7 @@
   <div class="max-w-3xl mx-auto">
     <div class="text-center mb-14">
       <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-3">Good to Know</span>
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Frequently Asked Questions</h2>
+      <h2 class="parallax-heading text-3xl sm:text-4xl font-bold text-slate-900" data-speed="0.05">Frequently Asked Questions</h2>
     </div>
     <div class="space-y-4">
       <details class="reveal group bg-white rounded-xl border border-slate-200/70 p-6" open>
@@ -659,7 +849,7 @@
 </section>
 
 <!-- Newsletter -->
-<section class="bg-slate-950 py-16 px-6">
+<section data-bg="#020617" class="bg-slate-950 py-16 px-6">
   <div class="max-w-3xl mx-auto text-center">
     <h2 class="text-2xl sm:text-3xl font-light text-white mb-3">Get Route Ideas Before Everyone Else</h2>
     <p class="text-slate-400 text-sm font-light mb-8">Occasional destination guides and seasonal fare drops — no spam, unsubscribe anytime.</p>
@@ -684,7 +874,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="bg-slate-950 text-slate-400 text-sm py-16 px-6 border-t border-slate-800">
+<footer data-bg="#020617" class="bg-slate-950 text-slate-400 text-sm py-16 px-6 border-t border-slate-800">
   <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
     <div>
       <h4 class="text-white font-black tracking-widest uppercase mb-4 text-sm">Trip Travvy Holidays</h4>
@@ -901,6 +1091,122 @@
   } else {
     revealEls.forEach(el => el.classList.add('in-view'));
   }
+
+  // ---------------------------------------------------------------
+  // SCROLL EFFECTS: progress bar, header shadow state, ambient
+  // background/theme-color shift on dark sections, hero parallax,
+  // and a gentle drift on section headlines while scrolling.
+  // All transform-based effects are skipped for prefers-reduced-motion.
+  // ---------------------------------------------------------------
+  (function(){
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const progressBar = document.getElementById('scrollProgress');
+    const header = document.getElementById('siteHeader');
+    const heroSlidesEl = document.getElementById('heroSlides');
+    const heroSection = document.getElementById('hero');
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    const parallaxHeadings = Array.from(document.querySelectorAll('.parallax-heading'));
+    const LIGHT_BG = '#f8fafc';
+    const DEFAULT_DARK = '#020617';
+
+    // Ambient background / browser theme-color follows whichever dark
+    // section is currently in view (hero, about, newsletter, footer).
+    const darkSections = Array.from(document.querySelectorAll('[data-bg]'));
+    const activeDark = new Set();
+    if('IntersectionObserver' in window && darkSections.length){
+      const bgIO = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) activeDark.add(entry.target);
+          else activeDark.delete(entry.target);
+        });
+        const next = activeDark.size ? (Array.from(activeDark).pop().dataset.bg || DEFAULT_DARK) : LIGHT_BG;
+        document.body.style.backgroundColor = next;
+        if(themeMeta) themeMeta.setAttribute('content', next);
+      }, {threshold:0.45});
+      darkSections.forEach(el => bgIO.observe(el));
+    }
+
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    function updateScrollEffects(){
+      const y = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+      // Progress bar
+      if(progressBar){
+        const pct = docHeight > 0 ? Math.min(100, (y / docHeight) * 100) : 0;
+        progressBar.style.width = pct + '%';
+      }
+
+      // Header shadow state
+      if(header){
+        header.classList.toggle('is-scrolled', y > 24);
+      }
+
+      // Hero parallax — background drifts slower than the page scroll, capped small on purpose
+      if(!prefersReducedMotion && heroSlidesEl && heroSection){
+        const heroHeight = heroSection.offsetHeight;
+        if(y < heroHeight){
+          const offset = Math.min(y * 0.12, 40);
+          heroSlidesEl.style.transform = 'translateY(' + offset + 'px)';
+        }
+      }
+
+      // Floating headline drift
+      if(!prefersReducedMotion && parallaxHeadings.length){
+        const viewportMid = window.innerHeight / 2;
+        parallaxHeadings.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if(rect.bottom < -100 || rect.top > window.innerHeight + 100) return; // skip offscreen work
+          const speed = parseFloat(el.dataset.speed || '0.05');
+          const elMid = rect.top + rect.height / 2;
+          const offset = (viewportMid - elMid) * speed;
+          el.style.transform = 'translateY(' + offset.toFixed(1) + 'px)';
+        });
+      }
+
+      ticking = false;
+    }
+
+    function onScroll(){
+      lastY = window.scrollY;
+      if(!ticking){
+        window.requestAnimationFrame(updateScrollEffects);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+    updateScrollEffects();
+  })();
+
+  // India Hidden Gems carousel — prev/next scroll + disabled-state at edges
+  (function(){
+    const track = document.getElementById('gemsTrack');
+    const prevBtn = document.getElementById('gemsPrev');
+    const nextBtn = document.getElementById('gemsNext');
+    if(!track || !prevBtn || !nextBtn) return;
+
+    function cardStep(){
+      const card = track.querySelector('.gems-card');
+      const gap = 20; // matches gap-5
+      return card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+    }
+
+    function updateArrowState(){
+      const maxScroll = track.scrollWidth - track.clientWidth - 2;
+      prevBtn.disabled = track.scrollLeft <= 2;
+      nextBtn.disabled = track.scrollLeft >= maxScroll;
+    }
+
+    prevBtn.addEventListener('click', () => track.scrollBy({ left: -cardStep(), behavior: 'smooth' }));
+    nextBtn.addEventListener('click', () => track.scrollBy({ left: cardStep(), behavior: 'smooth' }));
+    track.addEventListener('scroll', () => window.requestAnimationFrame(updateArrowState), { passive: true });
+    window.addEventListener('resize', updateArrowState);
+    updateArrowState();
+  })();
 </script>
 
 </body>
